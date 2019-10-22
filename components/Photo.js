@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Image, View } from 'react-native'
-import imagen from '../assets/no-foto.png'
 
 export default class Photo extends Component {
     render() {
@@ -13,7 +12,7 @@ export default class Photo extends Component {
         }else{
             return(
                 <View className = "Nphoto">
-                    <Image className = "foto" source={{uri: imagen}} alt='No existe foto'/>
+                    <Image className = "foto" source={require('../assets/no-foto.png')} alt='No existe foto'/>
                 </View>
             )
         }

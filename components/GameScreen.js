@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Game from './Game';
 import Botonera from './Buttons';
 import Mark from './Mark';
-import { View, Text} from 'react-native';
+import { View, Text, StyleSheet} from 'react-native';
 import {questionAnswer,changeQuestion,submit, initQuestion, reset} from '../redux/actions'
 
 class GameScreen extends Component {
@@ -24,7 +24,7 @@ class GameScreen extends Component {
       console.log(this.props.questions[0])
       if(!this.props.finished){
         return (
-          <View className = 'App'>
+          <View style = {styles.gameScreen}>
             <View className = 'Navbar'>
               <Text>QUIZ GAME</Text>
             </View>
@@ -73,6 +73,18 @@ class GameScreen extends Component {
   }
 }
 
+
+const styles = StyleSheet.create({
+  gameScreen: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 40,
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: '#B2DBBF'
+  }
+});
 
 function mapStateToProps(state) {
   return {
