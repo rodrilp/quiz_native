@@ -1,20 +1,25 @@
 import React, { Component } from 'react'
-import { View, Button } from 'react-native'
+import { View, Button, Text } from 'react-native'
 
 export default class Buttons extends Component {
     render() {
         return (
             <View>
-                <Button onClick = {()=> this.props.onSubmit()}
-                        disabled = {this.props.currentQuestion !== (this.props.length -1)}>Submit
+                <Button onPress = {()=> this.props.onSubmit()}
+                        disabled = {this.props.currentQuestion !== (this.props.length -1)}
+                        title = "Submit">
                 </Button>
-                <Button onClick = {()=> this.props.onChangequestion(false)}
-                        disabled = {this.props.currentQuestion === 0}>Previous
+                <Button onPress = {()=> this.props.onChangequestion(false)}
+                        disabled = {this.props.currentQuestion === 0}
+                        title = "Previous">
                 </Button>
-                <Button onClick = {()=> this.props.onChangequestion(true)}
-                        disabled = {this.props.currentQuestion === (this.props.length -1)}>Next
+                <Button onPress = {()=> this.props.onChangequestion(true)}
+                        disabled = {this.props.currentQuestion === (this.props.length -1)}
+                        title = "Next">
+
                 </Button>
-                <Button onClick = {()=> this.props.onReset()}>Reset
+                <Button onPress = {()=> this.props.onReset()}
+                        title = "Reset">
                 </Button>
             </View>
         )

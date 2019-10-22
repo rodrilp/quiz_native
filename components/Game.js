@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import Question from "./Question"
 import Tips from "./Tips"
 import { View} from 'react-native'
+import Author from './Author'
+import Photo from './Photo'
+import Answer from './Answer'
+
 
 
 export default class Game extends Component {
     render() {
-        let imagen = this.props.question.author.photo.url;
         return (
             <View className = "Game">
                 <Author question = {this.props.question}/>

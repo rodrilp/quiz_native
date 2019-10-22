@@ -9,7 +9,7 @@ export default class Answer extends Component {
                             value = {this.props.question.userAnswer || ''}
                             placeholder = 'Introduzca su respuesta'
                             title = "Respuesta"
-                            onChangeText = { (next) => {this.props.onQuestionAnswer1(next.target.value)}}/> 
+                            onChangeText = { (next) => {this.props.onQuestionAnswer1(next)}}/> 
             </View>
         )
     }

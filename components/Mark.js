@@ -7,7 +7,8 @@ export default class Mark extends Component {
             <View>
                 <Text> Has acertado {this.props.score} preguntas! </Text>
                 <Button variant="success"
-                        onClick = {()=> this.props.onReset()}>Play Again
+                        onPress = {()=> this.props.onReset()}
+                        title = "Play Again">
                 </Button>
             </View>
         )

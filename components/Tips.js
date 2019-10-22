@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, FlatList} from 'react-native'
 
 export default class Tips extends Component {
     render() {
@@ -8,13 +8,13 @@ export default class Tips extends Component {
             list = "No tips for this quiz";
         }else{
             list = this.props.question.tips.map((tip, index) => 
-                <li key={index}>{tip}</li>            
+                <FlatList key={index}>{tip}</FlatList>            
             );
         }
         return (
             <View>
                 <Text> Tips </Text>
-                {list}
+                <Text>{list}</Text>
             </View>
         )
     }
