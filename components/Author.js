@@ -4,9 +4,9 @@ import { Text, View, Image } from 'react-native'
 export default class Author extends Component {
     render() {
         return (
-            <View className = "Author">
-                <Text> Created by {this.props.question.author.username}
-                        <Image className="fotoCreador" source={{uri:this.props.question.author.photo.url}} roundedCircle alt ="Avatar del creador de la pregunta"/>     
+            <View >
+                <Text style = {{alignItems: "baseline"}}> Created by {this.props.question.author.username}
+                        <Image style={{width: 50, height: 50}} source={{uri:this.props.question.author.photo.url}} alt ="Avatar del creador de la pregunta"/>     
                 </Text>
             </View>
         )

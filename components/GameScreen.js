@@ -25,16 +25,18 @@ class GameScreen extends Component {
       if(!this.props.finished){
         return (
           <View style = {styles.gameScreen}>
-            <View className = 'Navbar'>
+            <View style = {styles.navBar}>
               <Text>QUIZ GAME</Text>
             </View>
-            <Game question = {this.props.questions[this.props.currentQuestion]}
+            <Game style = {styles.game}
+                  question = {this.props.questions[this.props.currentQuestion]}
                   currentQuestion = {this.props.currentQuestion}
                   onQuestionAnswer={(answer) => {
                     this.props.dispatch(questionAnswer(this.props.currentQuestion, answer));
                   }}
             />
-            <Botonera question = {this.props.questions[this.props.currentQuestion]}
+            <Botonera style = {styles.botonera}
+                      question = {this.props.questions[this.props.currentQuestion]}
                       currentQuestion = {this.props.currentQuestion}
                       length = {this.props.questions.length}
                       finished = {this.props.finished}
@@ -77,13 +79,21 @@ class GameScreen extends Component {
 const styles = StyleSheet.create({
   gameScreen: {
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 40,
-    borderWidth: 1,
-    borderColor: 'black',
-    backgroundColor: '#B2DBBF'
-  }
+    justifyContent: "center"
+
+    //backgroundColor: '#B2DBBF'
+  },
+   navBar: {
+    marginTop: 150
+  },/* 
+  botonera :{
+    justifyContent: "flex-end"
+  },
+  game: {
+    justifyContent: "space-around"
+  } */
 });
 
 function mapStateToProps(state) {

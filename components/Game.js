@@ -11,7 +11,7 @@ import Answer from './Answer'
 export default class Game extends Component {
     render() {
         return (
-            <View className = "Game">
+            <View>
                 <Author question = {this.props.question}/>
                 <Photo question = {this.props.question}/>
                 <Question question = {this.props.question}
