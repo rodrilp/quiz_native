@@ -28,30 +28,31 @@ class GameScreen extends Component {
             <View style = {styles.navBar}>
               <Text>QUIZ GAME</Text>
             </View>
-            <Game style = {styles.game}
-                  question = {this.props.questions[this.props.currentQuestion]}
-                  currentQuestion = {this.props.currentQuestion}
-                  onQuestionAnswer={(answer) => {
-                    this.props.dispatch(questionAnswer(this.props.currentQuestion, answer));
-                  }}
-            />
-            <Botonera style = {styles.botonera}
-                      question = {this.props.questions[this.props.currentQuestion]}
-                      currentQuestion = {this.props.currentQuestion}
-                      length = {this.props.questions.length}
-                      finished = {this.props.finished}
-                      onChangequestion = {(next) =>this.props.dispatch(changeQuestion(next))}
-                      onSubmit = {() => this.props.dispatch(submit(this.props.questions))}
-                      onReset = {() => {
-                        this.loadQuizzes()
-                        this.props.dispatch(reset())}}
-            />
+            <View style = {styles.game}>
+              <Game question = {this.props.questions[this.props.currentQuestion]}
+                    currentQuestion = {this.props.currentQuestion}
+                    onQuestionAnswer={(answer) => {
+                      this.props.dispatch(questionAnswer(this.props.currentQuestion, answer));
+                    }}
+              />
+              <Botonera question = {this.props.questions[this.props.currentQuestion]}
+                        currentQuestion = {this.props.currentQuestion}
+                        length = {this.props.questions.length}
+                        finished = {this.props.finished}
+                        onChangequestion = {(next) =>this.props.dispatch(changeQuestion(next))}
+                        onSubmit = {() => this.props.dispatch(submit(this.props.questions))}
+                        onReset = {() => {
+                          this.loadQuizzes()
+                          this.props.dispatch(reset())}}
+              />
+            </View>
+            
           </View>
         )
       }else {
         return (
-          <View className = 'App'>
-            <View className = 'Navbar'>
+          <View>
+            <View>
               <Text>QUIZ GAME</Text>
             </View>
           <Mark score = {this.props.score}
@@ -59,7 +60,6 @@ class GameScreen extends Component {
                   this.loadQuizzes()
                   this.props.dispatch(reset())}}/>
           </View>
-          
         )
       }
 
@@ -70,30 +70,27 @@ class GameScreen extends Component {
         </View>
       )
    
-    }
-    
+    } 
   }
 }
 
 
 const styles = StyleSheet.create({
   gameScreen: {
-    flex: 1,
+    flex:1,
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: "center"
+    marginTop: 20
+  },
+  navBar: {
+    flex:1,
+    justifyContent: 'space-around',
+    alignSelf: 'center'
+  },
+  game : {
+    flex:20,
+    flexDirection: 'column'
+  }
 
-    //backgroundColor: '#B2DBBF'
-  },
-   navBar: {
-    marginTop: 150
-  },/* 
-  botonera :{
-    justifyContent: "flex-end"
-  },
-  game: {
-    justifyContent: "space-around"
-  } */
 });
 
 function mapStateToProps(state) {
