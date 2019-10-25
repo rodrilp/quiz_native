@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Game from './Game';
 import Botonera from './Buttons';
 import Mark from './Mark';
-import { View, Text, StyleSheet, Button} from 'react-native';
+import ButtonsSave from './Buttons2';
+import { View, Text, StyleSheet, Button, AsyncStorage} from 'react-native';
 import {questionAnswer,changeQuestion,submit, initQuestion, reset} from '../redux/actions'
 
 class GameScreen extends Component {
@@ -48,6 +49,37 @@ class GameScreen extends Component {
                           this.loadQuizzes()
                           this.props.dispatch(reset())}}
               />
+              <ButtonsSave  onSave = {() => AsyncStorage.setItem('@P2_2019_IWEB:quiz',JSON.stringify(this.props.questions))
+                                              .then(() => {
+                                                alert("Los Quizzes han sido guardados!");
+                                              })
+                                              .catch(() => {
+                                                alert("Error al guardar los Quizzes!");
+                                              })}
+                            onLoad = {() => AsyncStorage.getItem('@P2_2019_IWEB:quiz')
+                                              .then((questions) => {
+                                                return parsedQuestions = JSON.parse(questions);                                                
+                                              })                                                                    
+                                              .then((quizzes) => {
+                                                if (quizzes.length > 0) {
+                                                  alert("Los Quizzes han sido cargados!");
+                                                  this.props.dispatch(initQuestion(quizzes))
+                                                }else{
+                                                  alert("No hay Quizzes que cargar!");
+                                                }
+                                              })
+                                              .catch((e) => {
+                                                alert("Error cargando los Quizzes!");
+                                                console.log(e)
+                                              })}
+                            onRemove = {() => AsyncStorage.clear()
+                                                .then(() => {
+                                                  alert("Los Quizzes han sido borrados!");
+                                                })
+                                                .catch(() => {
+                                                  alert("Error al eliminar los Quizzes!");
+                                                })}
+              />
             </View>
             
           </View>
@@ -82,11 +114,12 @@ const styles = StyleSheet.create({
   gameScreen: {
     flex:1,
     flexDirection: 'column',
-    marginTop: 20,
+    marginTop: 32,
     backgroundColor: '#FFA89A'
   },
   navBar: {
     flex:1,
+    flexDirection: "column",
     justifyContent: 'space-around',
     alignSelf: 'center',
     width: '100%',
