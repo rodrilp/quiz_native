@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Game from './Game';
 import Botonera from './Buttons';
 import Mark from './Mark';
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, Button} from 'react-native';
 import {questionAnswer,changeQuestion,submit, initQuestion, reset} from '../redux/actions'
 
 class GameScreen extends Component {
@@ -27,6 +27,9 @@ class GameScreen extends Component {
           <View style = {styles.gameScreen}>
             <View style = {styles.navBar}>
               <Text style = {styles.text}>QUIZ GAME</Text>
+              <Button title= "Volver a Inicio"
+                      onPress = {() => this.props.navigation.navigate('InitialScreen')}
+              />
             </View>
             <View style = {styles.game}>
               <Game question = {this.props.questions[this.props.currentQuestion]}

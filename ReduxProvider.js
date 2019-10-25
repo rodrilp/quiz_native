@@ -3,7 +3,7 @@ import GlobalState from './redux/reducers';
 import { createStore } from 'redux';
 
 import React, {Component} from 'react';
-import  GameScreen from './components/GameScreen';
+import  Nav from './components/Nav';
 
 export default class ReduxProvider extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export default class ReduxProvider extends Component {
     render() {
         return (
             <Provider store={ this.store }>
-                    <GameScreen />
+                    <Nav/>
             </Provider>
         );
     }
