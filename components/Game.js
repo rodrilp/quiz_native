@@ -12,13 +12,24 @@ export default class Game extends Component {
     render() {
         return (
             <View style = {styles.game}>
-                <Author question = {this.props.question}/>
-                <Photo question = {this.props.question}/>
-                <Question question = {this.props.question}
-                          currentQuestion = {this.props.currentQuestion}/>
-                <Answer question = {this.props.question}
-                        onQuestionAnswer1 = {(next) => this.props.onQuestionAnswer(next)}/>
-                <Tips question = {this.props.question}/>              
+                <View style = {styles.author}>
+                    <Author question = {this.props.question}/>
+                </View>
+                <View style = {styles.question}>
+                    <View style = {styles.photo}>
+                        <Photo question = {this.props.question}/> 
+                    </View>  
+                    <View style = {styles.content}>
+                        <Question question = {this.props.question}
+                                currentQuestion = {this.props.currentQuestion}/>
+                        <Answer question = {this.props.question}
+                                onQuestionAnswer1 = {(next) => this.props.onQuestionAnswer(next)}/>
+                    </View>
+                    
+                </View>
+                <View style = {styles.tips}>
+                    <Tips question = {this.props.question}/> 
+                </View>       
             </View>
         )
     }
@@ -28,6 +39,25 @@ const styles = StyleSheet.create({
     game: {
       flex:1,
       flexDirection: 'column',
-      justifyContent: 'space-around'
+    },
+    author : {
+        flex: 1
+    },
+    question: {
+        flex: 6,
+        flexDirection: 'column',
+        justifyContent:'center',
+        alignItems: 'center'
+    },
+    tips: {
+        flex:2,
+        flexDirection: 'column'
+    },
+    photo:{
+        flex:1
+    },
+    content: {
+        flex: 1,
+        justifyContent: 'center'
     }
 })

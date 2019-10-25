@@ -26,7 +26,7 @@ class GameScreen extends Component {
         return (
           <View style = {styles.gameScreen}>
             <View style = {styles.navBar}>
-              <Text>QUIZ GAME</Text>
+              <Text style = {styles.text}>QUIZ GAME</Text>
             </View>
             <View style = {styles.game}>
               <Game question = {this.props.questions[this.props.currentQuestion]}
@@ -79,16 +79,23 @@ const styles = StyleSheet.create({
   gameScreen: {
     flex:1,
     flexDirection: 'column',
-    marginTop: 20
+    marginTop: 20,
+    backgroundColor: '#FFA89A'
   },
   navBar: {
     flex:1,
     justifyContent: 'space-around',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    width: '100%',
+    backgroundColor: '#BDBDBD'
   },
   game : {
-    flex:20,
+    flex:10,
     flexDirection: 'column'
+  },
+  text:{
+    fontSize: 35,
+    alignSelf: 'center'
   }
 
 });

@@ -15,15 +15,16 @@ export default class Author extends Component {
 
 const styles = StyleSheet.create({
     author: {
-      flex:1,
-      flexDirection: 'row',
-      alignSelf: 'flex-end',
+        marginTop:15,
+        flexDirection: 'row',
+        alignSelf: 'flex-end'
     },
     text: {
+        marginRight: 5
     },
     photo: {
-        width:25,
-        height:25
+        width:20,
+        height:20
     }
 })
 

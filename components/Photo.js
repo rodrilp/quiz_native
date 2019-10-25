@@ -22,11 +22,11 @@ export default class Photo extends Component {
 
 const styles = StyleSheet.create({
     photo : {
-        flex:4,
-        alignSelf: 'center'
+        flex: 1,
+        justifyContent:'flex-start'
     },
     imagen:{
-        width: 200,
-        height: 100
+        width: 350,
+        height: 175
     }
 })
