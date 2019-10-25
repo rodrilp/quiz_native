@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline'
     },
     pregunta: {
-        fontSize: 30
+        fontSize: 25
     }
 })

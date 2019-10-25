@@ -18,7 +18,7 @@ export default class Answer extends Component {
 const styles = StyleSheet.create({
     answer : {
         flex: 1,
-        justifyContent:'flex-start',
+        justifyContent:'center',
         alignSelf: 'center',
     },
     text: {
